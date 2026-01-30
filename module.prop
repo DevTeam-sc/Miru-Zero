@@ -1,0 +1,8 @@
+id=miru_aio_zero
+name=Miru Zero (Ultimate Agent)
+version=v3.8.5
+zygisk=1
+versionCode=38032
+author=Miruko & DevSKY
+description=Miru AIO v3.8.5: Added Zygisk Assistant for Momo hiding + Hotfixes.
+updateJson=https://raw.githubusercontent.com/DevTeam-sc/Miru-Zero/main/update.json

@@ -1,0 +1,109 @@
+{
+  "configVersion": 92,
+  "detailLog": false,
+  "maxLogSize": 512,
+  "forceMountData": true,
+  "aggressiveFilter": true,
+  "templates": {
+    "TSupport-Advance": {
+      "isWhitelist": false,
+      "appList": [
+        "com.topjohnwu.magisk",
+        "com.rifsxd.ksunext",
+        "com.google.android.hmal",
+        "com.tsng.hidemyapplist",
+        "com.coderstory.toolkit",
+        "deltazero.amarok",
+        "io.github.vvb2060.magisk",
+        "io.github.a13e300.fusefixer",
+        "me.bmax.apatch",
+        "me.weishu.kernelsu",
+        "com.wmods.wppenhacer",
+        "org.frknkrc44.hma_oss",
+        "ru.maximoff.apktool",
+        "com.termux",
+        "bin.mt.plus",
+        "moe.shizuku.privileged.api",
+        "com.sevtinge.hyperceiler",
+        "com.rajmani7584.payloaddumper",
+        "com.fankes.apperrorstracking"
+      ]
+    },
+    "MiruB": { "isWhitelist": false, "appList": [] },
+    "MiruW": { "isWhitelist": true, "appList": [] }
+  },
+  "scope": {
+    "es.chiteroman.bootloaderspoofer": {
+      "useWhitelist": false,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruB"],
+      "extraAppList": []
+    },
+    "icu.nullptr.applistdetector": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruW"],
+      "extraAppList": ["icu.nullptr.applistdetector"]
+    },
+    "com.tsng.hidemyapplist": {
+      "useWhitelist": false,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruB"],
+      "extraAppList": []
+    },
+    "io.github.vvb2060.mahoshojo": {
+      "useWhitelist": false,
+      "excludeSystemApps": false,
+      "applyTemplates": [],
+      "extraAppList": []
+    },
+    "ktbcs.netbank": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruW"],
+      "extraAppList": ["ktbcs.netbank"]
+    },
+    "com.openai.chatgpt": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruW"],
+      "extraAppList": ["com.openai.chatgpt"]
+    },
+    "nce.bopp": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": [],
+      "extraAppList": []
+    },
+    "com.mobilife.gsb.mymo": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruW"],
+      "extraAppList": ["com.mobilife.gsb.mymo"]
+    },
+    "io.github.vvb2060.keyattestation": {
+      "useWhitelist": false,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruB"],
+      "extraAppList": []
+    },
+    "com.scb.phone": {
+      "useWhitelist": true,
+      "excludeSystemApps": true,
+      "applyTemplates": ["MiruW"],
+      "extraAppList": []
+    },
+    "ru.maximoff.apktool": {
+      "useWhitelist": false,
+      "excludeSystemApps": true,
+      "applyTemplates": [],
+      "extraAppList": []
+    },
+    "ewugzhht.v": {
+      "useWhitelist": false,
+      "excludeSystemApps": true,
+      "applyTemplates": [],
+      "extraAppList": []
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Secrets / Injection Logic
+system/etc/miru/scripts/ktb_vkey_dynamic.js
+system/etc/miru/scripts/integrity_bypass.js
+system/bin/miru-inject
+system/bin/frs7
+
+# General
+*.zip
+*.log
+.DS_Store
+Thumbs.db

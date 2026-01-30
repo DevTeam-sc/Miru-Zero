@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miru Integrity Box</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #1a1a1a; color: #00ff00; padding: 20px; }
+        .card { border: 1px solid #333; padding: 15px; margin-bottom: 15px; background: #222; border-radius: 8px; }
+        h1 { color: #ff69b4; text-shadow: 0 0 5px #ff69b4; }
+        h2 { border-bottom: 1px solid #444; padding-bottom: 5px; }
+        .status { font-weight: bold; }
+        .status.ok { color: #00ff00; }
+        .status.bad { color: #ff0000; }
+        button { background: #333; color: #fff; border: 1px solid #555; padding: 10px; cursor: pointer; width: 100%; margin-top: 5px; }
+        button:hover { background: #444; }
+        code { background: #000; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🦊 Miru Integrity Box</h1>
+    <div class="card">
+        <h2>System Status</h2>
+        <p>Service: <span class="status ok">RUNNING</span></p>
+        <p>Frida Server: <span class="status ok">ACTIVE (Port 27042)</span></p>
+        <p>WebUI Port: <span class="status">8888</span></p>
+    </div>
+
+    <div class="card">
+        <h2>Integrity Logic</h2>
+        <p><strong>Fingerprint:</strong> <br><code>Pixel 8 Pro (Husky)</code></p>
+        <p><strong>Security Patch:</strong> <br><code>2024-03-05</code></p>
+        <p><strong>Keybox State:</strong> <span class="status bad">MISSING (Using Software Fallback)</span></p>
+        <button onclick="alert('Feature coming soon: Upload Keybox.xml')">📂 Upload keybox.xml</button>
+    </div>
+
+    <div class="card">
+        <h2>Quick Actions</h2>
+        <button onclick="location.reload()">🔄 Refresh Status</button>
+        <button onclick="alert('Restarting GMS...')">💀 Kill GMS (DroidGuard)</button>
+        <button onclick="alert('Logs dumped to /data/local/tmp/miru.log')">📄 Dump Logs</button>
+    </div>
+
+    <div class="card">
+        <h2>Miru Logs</h2>
+        <pre id="logs" style="font-size: 10px; color: #aaa;">
+[Miru] Service Started
+[Miru] Hooking GMS...
+[Miru] Integrity Bypass Active
+        </pre>
+    </div>
+
+    <script>
+        // Simple mock interaction
+        console.log("Miru WebUI Loaded");
+    </script>
+</body>
+</html>

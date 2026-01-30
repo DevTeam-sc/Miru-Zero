@@ -1,0 +1,32 @@
+#!/system/bin/sh
+# Miru WebUI Launcher
+# Uses busybox httpd
+
+PORT=8888
+# Robust Web Root
+WEB_ROOT="/system/etc/miru/www"
+if [ ! -d "$WEB_ROOT" ]; then
+    # Fallback to module path if not mounted
+    SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+    # /data/adb/modules/miru_aio_zero/system/bin -> /data/adb/modules/miru_aio_zero
+    MOD_ROOT=${SCRIPT_DIR%/system/bin} 
+    WEB_ROOT="$MOD_ROOT/system/etc/miru/www"
+fi
+
+# Find Busybox
+BUSYBOX="busybox"
+if [ -f "/data/adb/magisk/busybox" ]; then
+    BUSYBOX="/data/adb/magisk/busybox"
+elif [ -f "/data/adb/ksu/bin/busybox" ]; then
+    BUSYBOX="/data/adb/ksu/bin/busybox"
+fi
+
+# Kill old instance
+pkill -f "busybox httpd -p $PORT"
+
+# Start Server
+echo "[Miru-Web] Starting on port $PORT..."
+$BUSYBOX httpd -p $PORT -h $WEB_ROOT
+
+# Show info
+echo "Miru WebUI is running at http://localhost:$PORT"

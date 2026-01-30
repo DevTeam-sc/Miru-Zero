@@ -1,0 +1,10 @@
+id=playintegrityfix
+name=.𝙄𝙣𝙩𝙚𝙜𝙧𝙞𝙩𝙮 𝘽𝙤𝙭 📦
+version=v28
+versionCode=28000
+author=𝗠𝗘𝗢𝗪𝗻𝗮 💅 & osm0sis
+updateJson=https://raw.githubusercontent.com/MeowDump/Integrity-Box/refs/heads/main/release.json
+support=https://t.me/MeowDump
+donate=MeowDump.github.io
+banner=meow.png
+description=Do not flash PIF module, you don't need it anymore. Everything will be managed by IntegrityBox from now

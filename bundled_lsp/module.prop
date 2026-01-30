@@ -1,0 +1,7 @@
+id=zygisk_lsposed
+name=Miru Framework (LSPosed)
+version=v1.9.2 (7024)
+versionCode=7024
+author=LSPosed Devs & Miruko
+description=Miru-optimized LSPosed Framework. Essential for Miru AIO operations.
+updateJson=https://lsposed.github.io/LSPosed/release/zygisk.json

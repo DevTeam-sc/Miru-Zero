@@ -1,0 +1,82 @@
+#!/system/bin/sh
+# Miru AI Agent CLI Wrapper
+# Usage: miru <command> [args]
+
+EVIDENCE_DIR="/sdcard/Download/evidence"
+LOG_DIR="/data/local/tmp/miru/logs"
+mkdir -p "$EVIDENCE_DIR"
+mkdir -p "$LOG_DIR"
+
+case "$1" in
+    status)
+        echo "=== Miru AIO Status ==="
+        echo "Frida Server (frs7): $(pgrep -f frs7 || echo 'OFF')"
+        echo "KTB Next: $(pidof ktbcs.netbank || echo 'OFF')"
+        echo "System: $(getprop ro.build.version.release) (API $(getprop ro.build.version.sdk))"
+        ;;
+
+    cap|capture)
+        # AI Skill: Screen Capture
+        TS=$(date +%Y%m%d-%H%M%S)
+        FILE="$EVIDENCE_DIR/screen_$TS.png"
+        screencap -p "$FILE"
+        HASH=$(sha256sum "$FILE" | cut -d' ' -f1)
+        echo "$HASH" > "$FILE.sha256"
+        echo "Captured: $FILE"
+        echo "Hash: $HASH"
+        ;;
+
+    log|logcat)
+        # AI Skill: Log Dump
+        TS=$(date +%Y%m%d-%H%M%S)
+        FILE="$EVIDENCE_DIR/logcat_$TS.txt"
+        logcat -d > "$FILE"
+        echo "Log saved: $FILE"
+        ;;
+
+    inject)
+        # AI Skill: Injection
+        # Usage: miru inject <pkg> <script_name>
+        PKG=${2:-"ktbcs.netbank"}
+        SCRIPT=${3:-"ktb_vkey_dynamic.js"}
+        SCRIPT_PATH="/system/etc/miru/scripts/$SCRIPT"
+        
+        if [ ! -f "$SCRIPT_PATH" ]; then
+            echo "Error: Script $SCRIPT not found in $SCRIPT_PATH"
+            exit 1
+        fi
+        
+        PID=$(pidof "$PKG")
+        if [ -z "$PID" ]; then
+            echo "Error: $PKG not running."
+            exit 1
+        fi
+        
+        echo "Injecting $SCRIPT into $PKG ($PID)..."
+        miru-inject -p "$PID" -s "$SCRIPT_PATH" --runtime=v8
+        ;;
+
+    kill)
+        # AI Skill: Clean Kill
+        pkill -f frida-inject
+        pkill -f frs7
+        echo "Killed all Miru agents."
+        ;;
+    
+    restart-frs7)
+        pkill -f frs7
+        frs7 -D
+        echo "Restarted frs7."
+        ;;
+
+    *)
+        echo "Miru AIO Agent (Zero Edition)"
+        echo "Commands:"
+        echo "  status            - Check system status"
+        echo "  cap               - Capture screenshot with hash"
+        echo "  log               - Dump logcat"
+        echo "  inject [pkg] [js] - Inject Frida script"
+        echo "  kill              - Kill agents"
+        echo "  restart-frs7      - Restart Frida server"
+        ;;
+esac

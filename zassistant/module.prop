@@ -1,0 +1,6 @@
+id=miru_zassistant
+name=Miru Zygisk Assistant
+version=v2.1.4 (Bundled)
+versionCode=214
+author=snake-4 & Miruko
+description=A Zygisk module to hide root (Bundled with Miru AIO).
